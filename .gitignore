@@ -1,0 +1,10 @@
+taus_craft/
+.env
+__pycache__/util.cpython-310.pyc
+messages/
+modpacks/TauS_Modpack_1_2.zip
+*.pyc
+*.cfg
+Scripts/
+Lib/
+Include/
