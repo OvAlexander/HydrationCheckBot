@@ -55,8 +55,8 @@ def generate_random_time_in_seconds():
         An integer representing the random time in seconds.
     """
 
-    min_minutes = 0
-    max_minutes = 10
+    min_minutes = 30
+    max_minutes = 70
     min_seconds = min_minutes*60
     max_seconds = max_minutes*60
     random_seconds = random.randint(
@@ -72,8 +72,8 @@ def check_time():
         True if the current time is within the specified range, False otherwise.
     """
     now = datetime.datetime.now().time()  # Get the current time only
-    start_time = datetime.time(8, 0)  # 8:00 AM
-    end_time = datetime.time(22, 0)  # 10:00 PM
+    start_time = datetime.time(11, 0)  # 8:00 AM
+    end_time = datetime.time(23, 59)  # 10:00 PM
 
     return start_time <= now <= end_time
 
@@ -85,9 +85,9 @@ def seconds_until():
         The number of seconds until the next 8:00 AM.
     """
     now = datetime.datetime.now()
-    next_8am = now.replace(hour=8, minute=0, second=0, microsecond=0)
+    next_8am = now.replace(hour=11, minute=0, second=0, microsecond=0)
 
-    if now.time() >= datetime.time(8, 0):  # If it's already 8 AM or later today
+    if now.time() >= datetime.time(11, 0):  # If it's already 8 AM or later today
         # Go to the next day's 8 AM
         next_8am = next_8am + datetime.timedelta(days=1)
 
@@ -128,8 +128,6 @@ TOKEN = os.getenv('TOKEN')
 IP = os.getenv("IP")
 SERVER_DIR_PATH = os.getenv(r'SERVER_DIR_PATH')
 FILE_PATH = os.getenv('FILE_PATH')
-CHANNEL_ID = os.getenv('CHANNEL_ID')
-NOTI_LIST = os.getenv('NOTI_LIST')
 USER_FILE = "./user_list.txt"
 MSG_FILE = "./msg_list.txt"
 USERS = read_lines_from_file(USER_FILE)
